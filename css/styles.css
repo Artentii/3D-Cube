@@ -1,0 +1,74 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 180px;
+}
+
+/* BACKGROUND */
+body {
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255, 225, 127);
+  perspective: 30rem;
+  perspective-origin: 2.625rem -8.125rem;
+}
+
+/* CUBE */
+.cube {
+  position: relative;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: animateCube 10s linear infinite;
+  padding-bottom: 2.5rem;
+  cursor: pointer;
+}
+
+@keyframes animateCube {
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.top,
+.bottom,
+.left,
+.right,
+.front,
+.back {
+  height: 2em;
+  width: 2em;
+  background: url(../assets/Blocks.png) no-repeat center center / cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border: 4px solid white;
+  box-shadow: 0 0 50px 10px rgb(139, 70, 196) inset;
+}
+
+/* INITIAL ANIMATION */
+.front {
+  transform: translateZ(1em);
+}
+
+.back {
+  transform: translateZ(-1em) rotateY(180deg);
+}
+
+.top {
+  transform: translateY(-1em) rotateX(90deg);
+}
+.bottom {
+  transform: translateY(1em) rotateX(90deg);
+}
+.right {
+  transform: translateX(1em) rotateY(90deg);
+}
+.left {
+  transform: translateX(-1em) rotateY(90deg) rotateY(180deg);
+}
